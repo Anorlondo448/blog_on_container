@@ -1,0 +1,30 @@
+version: '2.0'
+
+services:
+  volume:
+    build: ./volume
+
+  db:
+    depends_on:
+      - volume
+    build: ./db
+    ports: 
+      - "3306:3306"
+    volumes_from:
+      - volume
+    environment:
+      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+
+  wordpress:
+    depends_on:
+      - db
+    build: ./wordpress
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
