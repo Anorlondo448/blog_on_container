@@ -8,8 +8,6 @@ services:
     depends_on:
       - volume
     build: ./db
-    ports: 
-      - "3306:3306"
     volumes_from:
       - volume
     environment:
