@@ -46,7 +46,7 @@ $ ecs-cli --version
 ```
 
 ### AWS Setting
-- make key-pair
+- make Key Pair on EC2 Dashboard
 
 ### ENV Setting
 - use direnv
@@ -63,7 +63,7 @@ export ECS_CLUSTER=[Cluster Name]
 ### Launch ECS
 - create ECS cluster
 ```
-$ ecs-cli up --keypair [keypair name] --capability-iam --size [instance count] --instance-type [instance type]
+$ ecs-cli up --keypair [Key Pair Name] --capability-iam --size [Instance Count] --instance-type [Instance Type]
 ```
 
 
