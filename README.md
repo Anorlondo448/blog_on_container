@@ -59,6 +59,8 @@ export AWS_SECRET_ACCESS_KEY=[Secret Key]
 export AWS_DEFAULT_REGION=[Availability Zone]
 export ECS_CLUSTER=[Cluster Name]
 ```
+* [Cluster Name]　Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. ([Creating a Cluster](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create_cluster.html))
+
 
 ### Launch ECS
 - create ECS cluster
