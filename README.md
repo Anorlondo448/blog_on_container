@@ -54,10 +54,10 @@ $ ecs-cli --version
 $ direnv edit .
 ```
 ```
-export AWS_ACCESS_KEY_ID=AKIAXXXXXXXXXXXXXXXX
-export AWS_SECRET_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+export AWS_ACCESS_KEY_ID=[Access Key]
+export AWS_SECRET_ACCESS_KEY=[Secret Key]
 export AWS_DEFAULT_REGION=[Availability Zone]
-export ECS_CLUSTER=[cluster name]
+export ECS_CLUSTER=[Cluster Name]
 ```
 
 ### Launch ECS
