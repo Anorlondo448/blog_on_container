@@ -1,13 +1,16 @@
-version: '2.0'
+version: '2'
 
 services:
   volume:
     build: ./volume
+    image: blog_volume
 
   db:
     depends_on:
       - volume
     build: ./db
+    image: blog_db
+    mem_limit: 268435456
     volumes_from:
       - volume
     environment:
@@ -20,6 +23,8 @@ services:
     depends_on:
       - db
     build: ./wordpress
+    image: blog_app
+    mem_limit: 268435456
     ports:
       - "8080:80"
     environment:
