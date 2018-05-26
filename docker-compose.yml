@@ -2,14 +2,13 @@ version: '2'
 
 services:
   volume:
-    build: ./volume
-    image: blog_volume
+    image: ${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/blog_volume
+    mem_limit: 268435456
 
   db:
     depends_on:
       - volume
-    build: ./db
-    image: blog_db
+    image: ${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/blog_db
     mem_limit: 268435456
     volumes_from:
       - volume
@@ -22,8 +21,7 @@ services:
   wordpress:
     depends_on:
       - db
-    build: ./wordpress
-    image: blog_app
+    image: ${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/blog_app
     mem_limit: 268435456
     ports:
       - "8080:80"
