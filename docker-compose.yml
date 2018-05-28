@@ -1,17 +1,11 @@
 version: '2'
 
 services:
-  volume:
-    image: ${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/blog_volume
-    mem_limit: 268435456
-
   db:
-    depends_on:
-      - volume
     image: ${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/blog_db
-    mem_limit: 268435456
-    volumes_from:
-      - volume
+    volumes:
+      - /tmp/mysql:/var/lib/mysql
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: somewordpress
       MYSQL_DATABASE: wordpress
@@ -22,9 +16,9 @@ services:
     depends_on:
       - db
     image: ${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/blog_app
-    mem_limit: 268435456
     ports:
-      - "8080:80"
+      - "80:80"
+    restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: wordpress
